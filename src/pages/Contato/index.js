@@ -2,10 +2,10 @@ import * as React from "react";
 
 import Header from "../../components/Header";
 
-function Login(){
-  return (
+function Contato() {
+  return(
     <Header />
   );
 }
 
-export default Login;
+export default Contato;
