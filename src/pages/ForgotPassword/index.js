@@ -55,7 +55,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Login() {
+function ForgotPassword() {
   const classes = useStyles();
 
   return (
@@ -66,7 +66,7 @@ function Login() {
         <Box className={classes.content}>
           <Box display="flex" flexDirection="column">
             <Box mt={3}>
-              <Typography className={classes.titlePrincipal}>Login</Typography>
+              <Typography className={classes.titlePrincipal}>Esqueci minha senha</Typography>
               <Divider className={classes.dividerL} orientation="horizontal" />
             </Box>
           </Box>
@@ -75,16 +75,7 @@ function Login() {
             <Box flexGrow={1} mt={6}>
               <Grid container spacing={3}>
                 <Grid item md>
-                  <TextField
-                    label="Nome"
-                    required
-                    variant="filled"
-                    className={classes.input}
-                  />
-                </Grid>
-              </Grid>
-              <Grid container spacing={3}>
-                <Grid item xs>
+                  <Typography className={classes.link}>Confirme seu e-mail</Typography>
                   <TextField
                     label="Nome"
                     required
@@ -101,13 +92,9 @@ function Login() {
                 mt={2}
               >
                 <Box>
-                  <Link to="/forgotPassword" className={classes.link}>
-                    Esqueci minha senha
+                  <Link to="/" className={classes.link}>
+                    Retornar para login
                   </Link>{" "}
-                  <br />
-                  <Link to="/register" className={classes.link}>
-                    Não tem uma conta? Registre-se
-                  </Link>
                 </Box>
                 <Button type="submit" className={classes.button}>
                   Entrar
@@ -121,4 +108,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ForgotPassword;

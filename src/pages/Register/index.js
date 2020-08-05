@@ -262,7 +262,7 @@ function Register() {
                   />
 
                   <Box display="flex" justifyContent="space-between" mt={3}>
-                    <Link to="/login" className={classes.link}>Já tenho cadastro</Link>
+                    <Link to="/" className={classes.link}>Já tenho cadastro</Link>
                     <Button type="submit" className={classes.button}>Cadastrar</Button>
                   </Box>
                 </Grid>
