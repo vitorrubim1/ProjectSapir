@@ -9,12 +9,10 @@ import {
   Paper,
   Button,
 } from "@material-ui/core";
-import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/styles";
+import CheckCircleOutlineOutlinedIcon from "@material-ui/icons/CheckCircleOutlineOutlined";
 
 import { Link } from "react-router-dom";
-
-import Header from "../../components/Header";
 
 const useStyles = makeStyles({
   root: {
@@ -23,10 +21,12 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    overflowX: "hidden",
   },
   content: {
     width: "70%",
-    height: "85%",
+    height: "100vh",
+    paddingTop: "150px",
   },
   titlePrincipal: {
     color: "rgb(0, 52, 81)",
@@ -49,11 +49,14 @@ const useStyles = makeStyles({
     height: "3px",
     marginTop: "8px",
   },
-  button:{
+  button: {
     backgroundColor: "rgb(0, 52, 81)",
     color: "rgb(255, 255, 255)",
     borderBottom: "3px solid rgb(0, 36, 56)",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: "rgb(0, 36, 56)",
+    },
   },
   link: {
     background: "none",
@@ -61,7 +64,15 @@ const useStyles = makeStyles({
     fontSize: "1rem",
     fontWeight: "400",
     color: "rgb(0, 52, 81)",
-  }
+  },
+  dicaSenha: {
+    display: "flex",
+    flexDirection: "column",
+    border: "1px solid #dadad1",
+    borderRadius: "2px",
+    marginRight: "16px",
+    paddingLeft: "24px",
+  },
 });
 
 function Register() {
@@ -69,8 +80,6 @@ function Register() {
 
   return (
     <React.Fragment>
-      <Header />
-
       <Box className={classes.root}>
         <Box className={classes.content}>
           <Box display="flex" flexDirection="column">
@@ -239,31 +248,89 @@ function Register() {
               </Box>
               <Grid container spacing={2}>
                 <Grid item xs>
-                  <Paper elevation={1}>
-                    <Typography>Teste</Typography>
-                    <Typography>Teste</Typography>
-                    <Typography>Teste</Typography>
-                    <Typography>Teste</Typography>
-                  </Paper>
+                  <Box flex="50%" className={classes.dicaSenha} mb={10}>
+                    <Typography variant="subtitle1" className={classes.link}>
+                      <Box fontWeight={600} marginX={2} pt={4} pb={1}>
+                        Dicas de senha
+                      </Box>
+                    </Typography>
+                    <Box pb={4}>
+                      <Box
+                        display="flex"
+                        alignItems="center"
+                        marginX={1}
+                        marginY={0}
+                      >
+                        <CheckCircleOutlineOutlinedIcon
+                          fontSize="small"
+                          color="disabled"
+                        />
+                        <Typography
+                          variant="subtitle1"
+                          className={classes.link}
+                        >
+                          <Box pl={1}>Pelo menos 8 caracteres;</Box>
+                        </Typography>
+                      </Box>
+                      <Box
+                        display="flex"
+                        alignItems="center"
+                        marginX={1}
+                        marginY={0}
+                      >
+                        <CheckCircleOutlineOutlinedIcon
+                          fontSize="small"
+                          color="disabled"
+                        />
+                        <Typography
+                          variant="subtitle1"
+                          className={classes.link}
+                        >
+                          <Box pl={1}>Pelo menos 1 caractere minúsculo;</Box>
+                        </Typography>
+                      </Box>
+                      <Box
+                        display="flex"
+                        alignItems="center"
+                        marginX={1}
+                        marginY={0}
+                      >
+                        <CheckCircleOutlineOutlinedIcon
+                          fontSize="small"
+                          color="disabled"
+                        />
+                        <Typography
+                          variant="subtitle1"
+                          className={classes.link}
+                        >
+                          <Box pl={1}>Pelo menos 1 caractere maiúsculo.</Box>
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
                 </Grid>
                 <Grid item xs>
                   <TextField
-                    label="Cidade"
+                    label="Senha"
                     variant="filled"
                     required
                     className={classes.input}
                     style={{ marginBottom: "15px" }}
                   />
                   <TextField
-                    label="Cidade"
+                    label="Senha"
                     variant="filled"
                     required
                     className={classes.input}
                   />
 
                   <Box display="flex" justifyContent="space-between" mt={3}>
-                    <Link to="/" className={classes.link}>Já tenho cadastro</Link>
-                    <Button type="submit" className={classes.button}>Cadastrar</Button>
+                    <Link to="/login" className={classes.link}>
+                      Já tenho cadastro
+                    </Link>
+                    <Button type="submit" className={classes.button}>
+                      Cadastrar
+                    </Button>
                   </Box>
                 </Grid>
               </Grid>

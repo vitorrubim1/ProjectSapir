@@ -14,17 +14,26 @@ const useStyles = makeStyles({
     fontSize: "0.9rem",
     letterSpacing: "0.8px",
     color: "rgb(0, 52, 81)",
-    fontWeight: "700",
-  }
+    fontWeight: "700"
+  },
+  container: {
+    width: "100vw",
+    height: "125px",
+    zIndex: "10",
+    position: "fixed",
+    top: "0",
+    backgroundColor: "#FFF",
+    boxShadow: "rgba(0, 0, 0, 0.20) 1px 1px 10px",
+  },
 });
 
 function Header() {
   const classes = useStyles();
 
   return (
-    <Box>
+    <Box className={classes.container}>
       <Container>
-        <Box display="flex" alignItems="center" mr={8}>
+        <Box display="flex" paddingTop={1.5} alignItems="center" mr={8}>
           <Box flex={1}>
             <Box clone ml={8} width={"176px"}>
               <img src={logoSaphir} alt="Logo Saphir" />
@@ -33,8 +42,18 @@ function Header() {
 
           <Box display="flex" alignItems="center" justifyContent="flex-end">
             <Button>
+              <Link to="/" className={classes.link}>
+                Home
+              </Link>
+            </Button>
+            <Button>
               <Link to="/contact" className={classes.link}>
                 Contato
+              </Link>
+            </Button>
+            <Button>
+              <Link to="/login" className={classes.link}>
+                Login
               </Link>
             </Button>
             <Button>
@@ -42,7 +61,6 @@ function Header() {
                 Cadastre-se
               </Link>
             </Button>
-            
           </Box>
         </Box>
       </Container>

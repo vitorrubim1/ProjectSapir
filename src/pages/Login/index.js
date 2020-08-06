@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
-import Header from "../../components/Header";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -24,6 +23,7 @@ const useStyles = makeStyles({
   content: {
     width: "70%",
     height: "85%",
+    paddingTop: "120px",
   },
   titlePrincipal: {
     color: "rgb(0, 52, 81)",
@@ -45,6 +45,9 @@ const useStyles = makeStyles({
     color: "rgb(255, 255, 255)",
     borderBottom: "3px solid rgb(0, 36, 56)",
     fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: "rgb(0, 36, 56)",
+    },
   },
   link: {
     background: "none",
@@ -60,8 +63,6 @@ function Login() {
 
   return (
     <React.Fragment>
-      <Header />
-
       <Box className={classes.root}>
         <Box className={classes.content}>
           <Box display="flex" flexDirection="column">
@@ -76,7 +77,7 @@ function Login() {
               <Grid container spacing={3}>
                 <Grid item md>
                   <TextField
-                    label="Nome"
+                    label="Login"
                     required
                     variant="filled"
                     className={classes.input}
@@ -86,7 +87,7 @@ function Login() {
               <Grid container spacing={3}>
                 <Grid item xs>
                   <TextField
-                    label="Nome"
+                    label="Senha"
                     required
                     variant="filled"
                     className={classes.input}

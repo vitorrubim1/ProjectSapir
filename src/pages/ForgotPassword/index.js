@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
-import Header from "../../components/Header";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -29,6 +28,7 @@ const useStyles = makeStyles({
     color: "rgb(0, 52, 81)",
     fontWeight: "500",
     fontSize: "2.5rem",
+    paddingTop: "130px",
   },
   input: {
     textAlign: "center",
@@ -45,6 +45,9 @@ const useStyles = makeStyles({
     color: "rgb(255, 255, 255)",
     borderBottom: "3px solid rgb(0, 36, 56)",
     fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: "rgb(0, 36, 56)",
+    },
   },
   link: {
     background: "none",
@@ -60,8 +63,6 @@ function ForgotPassword() {
 
   return (
     <React.Fragment>
-      <Header />
-
       <Box className={classes.root}>
         <Box className={classes.content}>
           <Box display="flex" flexDirection="column">
@@ -77,7 +78,7 @@ function ForgotPassword() {
                 <Grid item md>
                   <Typography className={classes.link}>Confirme seu e-mail</Typography>
                   <TextField
-                    label="Nome"
+                    label="Email"
                     required
                     variant="filled"
                     className={classes.input}
@@ -92,7 +93,7 @@ function ForgotPassword() {
                 mt={2}
               >
                 <Box>
-                  <Link to="/" className={classes.link}>
+                  <Link to="/login" className={classes.link}>
                     Retornar para login
                   </Link>{" "}
                 </Box>

@@ -10,8 +10,6 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
-import Header from "../../components/Header";
-
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -23,6 +21,7 @@ const useStyles = makeStyles({
   content: {
     width: "70%",
     height: "85%",
+    paddingTop: "100px",
   },
   titlePrincipal: {
     color: "rgb(0, 52, 81)",
@@ -44,6 +43,9 @@ const useStyles = makeStyles({
     color: "rgb(255, 255, 255)",
     borderBottom: "3px solid rgb(0, 36, 56)",
     fontWeight: "bold",
+    "&:hover": {
+      backgroundColor: "rgb(0, 36, 56)",
+    },
   },
 });
 
@@ -52,8 +54,6 @@ function Contato() {
 
   return (
     <React.Fragment>
-      <Header />
-
       <Box className={classes.root}>
         <Box className={classes.content}>
           <Box display="flex" flexDirection="column">
@@ -67,7 +67,7 @@ function Contato() {
 
           <form noValidate autoComplete="off">
             <Box flexGrow={1} mt={6}>
-              <Grid container spacing={3}>
+              <Grid container spacing={4}>
                 <Grid item xs>
                   <TextField
                     label="Nome"
@@ -78,10 +78,10 @@ function Contato() {
                 </Grid>
               </Grid>
 
-              <Grid container spacing={3}>
+              <Grid container spacing={4}>
                 <Grid item xs>
                   <TextField
-                    label="CPF"
+                    label="Email"
                     required
                     variant="filled"
                     className={classes.input}
@@ -89,26 +89,7 @@ function Contato() {
                 </Grid>
                 <Grid item xs>
                   <TextField
-                    label="Telefone"
-                    required
-                    variant="filled"
-                    className={classes.input}
-                  />
-                </Grid>
-              </Grid>
-
-              <Grid container spacing={3}>
-                <Grid item xs>
-                  <TextField
-                    label="CPF"
-                    required
-                    variant="filled"
-                    className={classes.input}
-                  />
-                </Grid>
-                <Grid item xs>
-                  <TextField
-                    label="Telefone"
+                    label="Estado"
                     required
                     variant="filled"
                     className={classes.input}
@@ -116,7 +97,37 @@ function Contato() {
                 </Grid>
               </Grid>
 
-              <Grid container spacing={3}>
+              <Grid container spacing={4}>
+                <Grid item xs>
+                  <TextField
+                    label="Cidade"
+                    required
+                    variant="filled"
+                    className={classes.input}
+                  />
+                </Grid>
+                <Grid item xs>
+                  <TextField
+                    label="Assunto"
+                    required
+                    variant="filled"
+                    className={classes.input}
+                  />
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={4}>
+                <Grid item xs>
+                  <TextField
+                    label="Mensagem"
+                    required
+                    variant="filled"
+                    className={classes.input}
+                  />
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={4}>
                 <Grid item xs>
                   <TextField
                     label="Nome"
@@ -126,18 +137,7 @@ function Contato() {
                   />
                 </Grid>
               </Grid>
-
-              <Grid container spacing={3}>
-                <Grid item xs>
-                  <TextField
-                    label="Nome"
-                    required
-                    variant="filled"
-                    className={classes.input}
-                  />
-                </Grid>
-              </Grid>
-              <Box display="flex" alignItems="rigth" mt={2}>
+              <Box display="flex" justifyContent="flex-end" mt={2}>
                 <Button type="submit" className={classes.button}>
                   Enviar
                 </Button>

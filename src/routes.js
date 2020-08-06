@@ -5,11 +5,14 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Contato from "./pages/Contato";
 import ForgotPassword from "./pages/ForgotPassword";
+import Header from "./components/Header";
 
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path="/" component={Login} exact />
+      <Header />
+      {/* <Route path="/" component={Home} exact /> */}
+      <Route path="/login" component={Login} exact />
       <Route path="/register" component={Register} />
       <Route path="/contact" component={Contato} />
       <Route path="/forgotPassword" component={ForgotPassword} />
