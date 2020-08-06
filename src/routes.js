@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Contato from "./pages/Contato";
+import Contato from "./pages/Contact";
 import ForgotPassword from "./pages/ForgotPassword";
 import Header from "./components/Header";
 
