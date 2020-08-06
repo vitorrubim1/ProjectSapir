@@ -1,16 +1,10 @@
 import * as React from "react";
 
-import {
-  Box,
-  Typography,
-  Grid,
-  TextField,
-  Divider,
-  Button,
-} from "@material-ui/core";
+import { Box, Typography, Grid, Divider, Button } from "@material-ui/core";
 import CheckCircleOutlineOutlinedIcon from "@material-ui/icons/CheckCircleOutlineOutlined";
 
-import { useFormik, FormikContext, Form } from "formik";
+import { useFormik, FormikContext, Form, Field } from "formik";
+import { TextField } from "formik-material-ui";
 import { RegisterSchema } from "../../utils/validations/schema/register";
 
 import { useStyles } from "./styles";
@@ -26,7 +20,16 @@ function Register() {
       sobrenome: "",
       cpf: "",
       email: "",
+      telefone: "",
+      nomeEmpresa: "",
+      cnpj: "",
+      cep: "",
+      endereco: "",
+      numero: "",
+      estado: "",
+      cidade: "",
     },
+    validationSchema:RegisterSchema,
     onSubmit: (values) => {
       console.log(values);
     },
@@ -49,7 +52,8 @@ function Register() {
               <Box flexGrow={1} mt={6}>
                 <Grid container spacing={3}>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Nome"
                       name="nome"
                       required
@@ -58,7 +62,8 @@ function Register() {
                     />
                   </Grid>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Sobrenome"
                       name="sobrenome"
                       required
@@ -70,7 +75,8 @@ function Register() {
 
                 <Grid container spacing={3}>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="CPF"
                       name="cpf"
                       required
@@ -79,16 +85,19 @@ function Register() {
                     />
                   </Grid>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="E-mail"
                       name="email"
+                      type="email"
                       required
                       variant="filled"
                       className={classes.input}
                     />
                   </Grid>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Telefone"
                       name="telefone"
                       required
@@ -100,7 +109,8 @@ function Register() {
 
                 <Grid container spacing={3}>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Nome da empresa"
                       name="nomeEmpresa"
                       required
@@ -110,7 +120,8 @@ function Register() {
                   </Grid>
 
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="CNPJ"
                       name="cnpj"
                       required
@@ -140,7 +151,8 @@ function Register() {
 
                 <Grid container spacing={3}>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="CEP"
                       name="cep"
                       required
@@ -149,7 +161,8 @@ function Register() {
                     />
                   </Grid>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Endereço"
                       name="endereco"
                       required
@@ -158,7 +171,8 @@ function Register() {
                     />
                   </Grid>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Número"
                       name="numero"
                       required
@@ -170,7 +184,8 @@ function Register() {
 
                 <Grid container spacing={3}>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Complemento"
                       name="complemento"
                       variant="filled"
@@ -178,7 +193,8 @@ function Register() {
                     />
                   </Grid>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Estado"
                       name="estado"
                       variant="filled"
@@ -187,7 +203,8 @@ function Register() {
                     />
                   </Grid>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Cidade"
                       name="cidade"
                       variant="filled"
@@ -277,8 +294,10 @@ function Register() {
                     </Box>
                   </Grid>
                   <Grid item xs>
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Senha"
+                      type="password"
                       name="senha"
                       variant="filled"
                       border="none"
@@ -286,8 +305,10 @@ function Register() {
                       className={classes.input}
                       style={{ marginBottom: "15px" }}
                     />
-                    <TextField
+                    <Field
+                      component={TextField}
                       label="Confirme a senha"
+                      type="password"
                       name="rsenha"
                       variant="filled"
                       required
