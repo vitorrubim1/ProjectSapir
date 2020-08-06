@@ -14,7 +14,7 @@ import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import { SchemaContato } from "../../utils/validations/schema/contato";
 
-import { useStyles } from "./styles";
+import { useStyles } from "../pageStyles";
 
 function Contato() {
   const classes = useStyles();

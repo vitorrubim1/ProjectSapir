@@ -10,21 +10,40 @@ export const useStyles = makeStyles({
   },
   content: {
     width: "70%",
-    height: "85%",
-    paddingTop: "120px",
+    height: "100vh",
+    paddingTop: "170px",
+  },
+  contentContact: {
+    width: "70%",
+    height: "100vh",
+    paddingTop: "100px",
+  },
+  contentForgot: {
+    width: "70%",
+    height: "100vh",
   },
   titlePrincipal: {
     color: "rgb(0, 52, 81)",
     fontWeight: "500",
     fontSize: "2.5rem",
   },
-  input: {
+  inputHalf: {
     textAlign: "center",
     width: "45%",
+  },
+  input: {
+    textAlign: "center",
+    width: "100%",
   },
   dividerL: {
     backgroundColor: "#E9AF00",
     width: "75px",
+    height: "3px",
+    marginTop: "8px",
+  },
+  dividerS: {
+    backgroundColor: "#E9AF00",
+    width: "45px",
     height: "3px",
     marginTop: "8px",
   },
@@ -43,5 +62,13 @@ export const useStyles = makeStyles({
     fontSize: "1rem",
     fontWeight: "400",
     color: "rgb(0, 52, 81)",
+  },
+  dicaSenha: {
+    display: "flex",
+    flexDirection: "column",
+    border: "1px solid #dadad1",
+    borderRadius: "2px",
+    marginRight: "16px",
+    paddingLeft: "24px",
   },
 });

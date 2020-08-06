@@ -6,7 +6,7 @@ import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import { LoginSchema } from "../../utils/validations/schema/login";
 
-import { useStyles } from "./styles";
+import { useStyles } from "../pageStyles";
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -46,7 +46,7 @@ function Login() {
                       label="Login"
                       required
                       variant="filled"
-                      className={classes.input}
+                      className={classes.inputHalf}
                     />
                   </Grid>
                 </Grid>
@@ -58,7 +58,7 @@ function Login() {
                       label="Senha"
                       required
                       variant="filled"
-                      className={classes.input}
+                      className={classes.inputHalf}
                     />
                   </Grid>
                 </Grid>

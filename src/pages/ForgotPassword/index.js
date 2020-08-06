@@ -9,7 +9,7 @@ import {
   Button,
 } from "@material-ui/core";
 
-import { useStyles } from "./styles";
+import { useStyles } from "../pageStyles";
 import { Link } from "react-router-dom";
 
 function ForgotPassword() {

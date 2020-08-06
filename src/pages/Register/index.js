@@ -7,7 +7,7 @@ import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import { RegisterSchema } from "../../utils/validations/schema/register";
 
-import { useStyles } from "./styles";
+import { useStyles } from "../pageStyles";
 import { Link } from "react-router-dom";
 
 function Register() {
@@ -29,7 +29,7 @@ function Register() {
       estado: "",
       cidade: "",
     },
-    validationSchema:RegisterSchema,
+    validationSchema: RegisterSchema,
     onSubmit: (values) => {
       console.log(values);
     },
