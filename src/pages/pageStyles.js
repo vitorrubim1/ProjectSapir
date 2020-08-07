@@ -18,10 +18,6 @@ export const useStyles = makeStyles({
     height: "100vh",
     paddingTop: "100px",
   },
-  contentForgot: {
-    width: "70%",
-    height: "100vh",
-  },
   titlePrincipal: {
     color: "rgb(0, 52, 81)",
     fontWeight: "500",

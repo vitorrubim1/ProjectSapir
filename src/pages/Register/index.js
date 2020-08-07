@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { Box, Typography, Grid, Divider, Button } from "@material-ui/core";
 import CheckCircleOutlineOutlinedIcon from "@material-ui/icons/CheckCircleOutlineOutlined";
+import axios from "axios";
 
 import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
@@ -34,6 +35,21 @@ function Register() {
       console.log(values);
     },
   });
+
+  async function getCep() {
+    try {
+      const cleanCep = methods.values.cep.replace(/\D/g, "")
+      const response = await axios.get(
+        `https://viacep.com.br/ws/${cleanCep}/json/`
+      );
+      methods.setFieldValue("cep", response.data.cep);
+      methods.setFieldValue("endereco", response.data.logradouro);
+      methods.setFieldValue("estado", response.data.uf);
+      methods.setFieldValue("cidade", response.data.localidade);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <React.Fragment>
@@ -155,6 +171,7 @@ function Register() {
                       component={TextField}
                       label="CEP"
                       name="cep"
+                      onBlur={getCep}
                       required
                       variant="filled"
                       className={classes.input}

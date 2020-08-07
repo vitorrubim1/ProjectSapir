@@ -1,0 +1,5 @@
+export const SapirTypes = {
+  REQUEST: "@SAPIR/REQUEST",
+  SUCCESS: "@SAPIR/SUCCESS",
+  FAILURE: "@SAPIR/FAILURE",
+}

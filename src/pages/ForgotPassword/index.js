@@ -39,7 +39,7 @@ function ForgotPassword() {
                     label="Email"
                     required
                     variant="filled"
-                    className={classes.input}
+                    className={classes.inputHalf}
                   />
                 </Grid>
               </Grid>

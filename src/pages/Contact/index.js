@@ -12,11 +12,11 @@ import {
 import { useFormik, FormikContext, Form, Field } from "formik";
 
 import { TextField } from "formik-material-ui";
-import { SchemaContato } from "../../utils/validations/schema/contato";
+import { SchemaContato } from "../../utils/validations/schema/contact";
 
 import { useStyles } from "../pageStyles";
 
-function Contato() {
+function Contact() {
   const classes = useStyles();
 
   const methods = useFormik({
@@ -148,4 +148,4 @@ function Contato() {
   );
 }
 
-export default Contato;
+export default Contact;

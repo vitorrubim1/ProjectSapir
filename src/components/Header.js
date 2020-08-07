@@ -36,16 +36,11 @@ function Header() {
         <Box display="flex" paddingTop={1.5} alignItems="center" mr={8}>
           <Box flex={1}>
             <Box clone ml={8} width={"176px"}>
-              <img src={logoSaphir} alt="Logo Saphir" />
+              <img src={logoSaphir} alt="Logo Sapir" />
             </Box>
           </Box>
 
           <Box display="flex" alignItems="center" justifyContent="flex-end">
-            <Button>
-              <Link to="/" className={classes.link}>
-                Home
-              </Link>
-            </Button>
             <Button>
               <Link to="/contact" className={classes.link}>
                 Contato
