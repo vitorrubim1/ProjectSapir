@@ -25,3 +25,8 @@ export const send_Contact = (data) => ({
   type: SapirTypes.SEND_CONTACT,
   payload: { data }
 })
+
+export const forgot = (data) => ({
+  type: SapirTypes.FORGOT,
+  payload: { data }
+})

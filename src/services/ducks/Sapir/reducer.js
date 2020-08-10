@@ -23,7 +23,7 @@ export const reducer = (state = initialState, action) => {
       };
 
     case SapirTypes.LOGIN:
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: false };
 
     case SapirTypes.LOGOUT:
       return {
@@ -31,9 +31,6 @@ export const reducer = (state = initialState, action) => {
         loading: false,
         error: true,
       };
-
-    case SapirTypes.SEND_CONTACT:
-      return { error: false };
 
     case SapirTypes.FAILURE:
       return {

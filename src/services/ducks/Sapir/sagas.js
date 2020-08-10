@@ -6,7 +6,6 @@ import { success, failure, request, send_Contact } from "./actions";
 export function* Register(action) {
   try {
     const response = yield call(
-      //call api
       api.post,
       "http://localhost:5000/integrador",
       action.payload.data
@@ -45,7 +44,20 @@ export function* Contact(action) {
   try {
     const response = yield call(
       api.post,
-      "http://localhost:5000/auth",
+      "http://localhost:5000/auth/contact",
+      action.payload.data
+    );
+  } catch (error) {
+    yield put(failure(error));
+  }
+}
+
+
+export function* Forgot(action) {
+  try {
+    const response = yield call(
+      api.post,
+      "http://localhost:5000/auth/recover",
       action.payload.data
     );
   } catch (error) {

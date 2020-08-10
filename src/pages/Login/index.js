@@ -3,24 +3,29 @@ import * as React from "react";
 import { Box, Typography, Grid, Divider, Button } from "@material-ui/core";
 
 import { useFormik, FormikContext, Form, Field } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+
 import { TextField } from "formik-material-ui";
 import { LoginSchema } from "../../utils/validations/schema/login";
+import { login } from "../../services/ducks/Sapir/actions";
 
 import { useStyles } from "../pageStyles";
 import { Link } from "react-router-dom";
 
 function Login() {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const methods = useFormik({
     enableReinitialize: true,
     initialValues: {
       email: "",
-      senha: "",
+      password: "",
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => {
       console.log(values);
+      dispatch(login(values));
     },
   });
 
@@ -39,7 +44,7 @@ function Login() {
             <Form>
               <Box flexGrow={1} mt={6}>
                 <Grid container spacing={3}>
-                  <Grid item md>
+                  <Grid item xs>
                     <Field
                       component={TextField}
                       name="email"
@@ -54,7 +59,7 @@ function Login() {
                   <Grid item xs>
                     <Field
                       component={TextField}
-                      name="senha"
+                      name="password"
                       label="Senha"
                       required
                       variant="filled"

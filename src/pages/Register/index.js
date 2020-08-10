@@ -9,6 +9,7 @@ import { request } from '../../services/ducks/Sapir/actions';
 
 import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
+
 import { RegisterSchema } from "../../utils/validations/schema/register";
 
 import { useStyles } from "../pageStyles";
@@ -60,16 +61,15 @@ function Register() {
     }
   }
 
-  React.useEffect(() => {
-    console.log(auth)
+  // React.useEffect(() => {
+  //   if(auth.error === true){
+  //     alert("Deu erro")
+  //   } else {
+  //     history.push("/")
+  //   }
 
-    if(auth.error){
-      alert("Deu ruim")
-    } else {
-      history.push("/contato");
-      alert("cadastrou")
-    }
-  }, [auth]);
+    
+  // }, [auth]);
 
   return (
     <React.Fragment>
