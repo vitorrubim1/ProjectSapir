@@ -4,35 +4,44 @@ import { Box, Typography, Grid, Divider, Button } from "@material-ui/core";
 import CheckCircleOutlineOutlinedIcon from "@material-ui/icons/CheckCircleOutlineOutlined";
 import axios from "axios";
 
+import { useDispatch, useSelector } from 'react-redux';
+import { request } from '../../services/ducks/Sapir/actions';
+
 import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 import { RegisterSchema } from "../../utils/validations/schema/register";
 
 import { useStyles } from "../pageStyles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Register() {
+  const dispatch = useDispatch();
   const classes = useStyles();
+  const history = useHistory();
+
+  const auth = useSelector((state => state.reducerSapir));
 
   const methods = useFormik({
     enableReinitialize: true,
     initialValues: {
-      nome: "",
-      sobrenome: "",
+      first_name: "",
+      last_name: "",
       cpf: "",
       email: "",
       telefone: "",
-      nomeEmpresa: "",
+      password: "",
+      password_confirm: "",
+      nome_empresa: "",
       cnpj: "",
       cep: "",
       endereco: "",
       numero: "",
-      estado: "",
+      uf: "",
       cidade: "",
     },
     validationSchema: RegisterSchema,
     onSubmit: (values) => {
-      console.log(values);
+      dispatch(request(values));
     },
   });
 
@@ -51,13 +60,24 @@ function Register() {
     }
   }
 
+  React.useEffect(() => {
+    console.log(auth)
+
+    if(auth.error){
+      alert("Deu ruim")
+    } else {
+      history.push("/contato");
+      alert("cadastrou")
+    }
+  }, [auth]);
+
   return (
     <React.Fragment>
       <Box className={classes.root}>
         <Box className={classes.content}>
           <Box display="flex" flexDirection="column">
             <Box mt={3}>
-              <Typography className={classes.titlePrincipal}>
+              <Typography classes={{ body1: classes.titlePrincipal }} variant="body1">
                 Quero me cadastrar na Sapir
               </Typography>
               <Divider className={classes.dividerL} orientation="horizontal" />
@@ -71,7 +91,7 @@ function Register() {
                     <Field
                       component={TextField}
                       label="Nome"
-                      name="nome"
+                      name="first_name"
                       required
                       variant="filled"
                       className={classes.input}
@@ -81,7 +101,7 @@ function Register() {
                     <Field
                       component={TextField}
                       label="Sobrenome"
-                      name="sobrenome"
+                      name="last_name"
                       required
                       variant="filled"
                       className={classes.input}
@@ -128,7 +148,7 @@ function Register() {
                     <Field
                       component={TextField}
                       label="Nome da empresa"
-                      name="nomeEmpresa"
+                      name="nome_empresa"
                       required
                       variant="filled"
                       className={classes.input}
@@ -213,7 +233,7 @@ function Register() {
                     <Field
                       component={TextField}
                       label="Estado"
-                      name="estado"
+                      name="uf"
                       variant="filled"
                       required
                       className={classes.input}
@@ -315,7 +335,7 @@ function Register() {
                       component={TextField}
                       label="Senha"
                       type="password"
-                      name="senha"
+                      name="password"
                       variant="filled"
                       border="none"
                       required
@@ -326,7 +346,7 @@ function Register() {
                       component={TextField}
                       label="Confirme a senha"
                       type="password"
-                      name="rsenha"
+                      name="password_confirm"
                       variant="filled"
                       required
                       className={classes.input}

@@ -1,15 +1,11 @@
 import * as React from "react";
 
-import {
-  Box,
-  Typography,
-  Grid,
-  Divider,
-  Button,
-
-} from "@material-ui/core";
+import { Box, Typography, Grid, Divider, Button } from "@material-ui/core";
 
 import { useFormik, FormikContext, Form, Field } from "formik";
+
+import { useDispatch, useSelector } from "react-redux";
+import { send_Contact } from "../../services/ducks/Sapir/actions";
 
 import { TextField } from "formik-material-ui";
 import { SchemaContato } from "../../utils/validations/schema/contact";
@@ -18,20 +14,23 @@ import { useStyles } from "../pageStyles";
 
 function Contact() {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const methods = useFormik({
     enableReinitialize: true,
     initialValues: {
-      nome: "",
+      name: "",
       email: "",
-      estado: "",
+      telefone: "",
       cidade: "",
-      assunto: "",
-      mensagem: "",
+      uf: "",
+      subject: "",
+      message: "",
     },
     validationSchema: SchemaContato,
     onSubmit: (values) => {
       console.log(values);
+      dispatch(send_Contact(values));
     },
   });
 
@@ -55,7 +54,7 @@ function Contact() {
                     <Field
                       component={TextField}
                       label="Nome"
-                      name="nome"
+                      name="name"
                       required
                       variant="filled"
                       className={classes.input}
@@ -91,7 +90,7 @@ function Contact() {
                     <Field
                       component={TextField}
                       label="Estado"
-                      name="estado"
+                      name="uf"
                       required
                       variant="filled"
                       className={classes.input}
@@ -114,7 +113,7 @@ function Contact() {
                     <Field
                       component={TextField}
                       label="Assunto"
-                      name="assunto"
+                      name="subject"
                       required
                       variant="filled"
                       className={classes.input}
@@ -127,7 +126,7 @@ function Contact() {
                     <Field
                       component={TextField}
                       label="Mensagem"
-                      name="mensagem"
+                      name="message"
                       required
                       variant="filled"
                       className={classes.input}
