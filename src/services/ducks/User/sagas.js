@@ -10,6 +10,8 @@ export function* Register(action) {
       "http://localhost:5000/integrador",
       action.payload.data
     );
+    console.log(response);
+    console.log(response.headers);
 
     if (response.data && response.data.length) {
       yield put(success(response.data)); //if there is a user
@@ -26,10 +28,9 @@ export function* Login(action) {
     const response = yield call(
       //call api
       api.post,
-      "http://localhost:5000/integrador",
+      "http://localhost:5000/",
       action.payload.data
     );
-
     if (response.data && response.data.length) {
       yield put(success(response.data)); //if there is a user
     } else {
@@ -51,7 +52,6 @@ export function* Contact(action) {
     yield put(failure(error));
   }
 }
-
 
 export function* Forgot(action) {
   try {

@@ -1,6 +1,6 @@
 import { all, takeLatest } from 'redux-saga/effects'; //generators
 
-import { Register, SapirTypes, Contact } from './ducks/Sapir';
+import { Register, SapirTypes, Contact } from './ducks/User';
 
 export function* root(){
   yield all([

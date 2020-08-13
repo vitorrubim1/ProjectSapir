@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
 
-import { forgot } from "../../services/ducks/Sapir/actions";
+import { forgot } from "../../services/ducks/User/actions";
 
 import { ForgotSchema } from "../../utils/validations/schema/forgot";
 

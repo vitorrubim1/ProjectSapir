@@ -5,7 +5,7 @@ import { Box, Typography, Grid, Divider, Button } from "@material-ui/core";
 import { useFormik, FormikContext, Form, Field } from "formik";
 
 import { useDispatch, useSelector } from "react-redux";
-import { send_Contact } from "../../services/ducks/Sapir/actions";
+import { send_Contact } from "../../services/ducks/User/actions";
 
 import { TextField } from "formik-material-ui";
 import { SchemaContato } from "../../utils/validations/schema/contact";

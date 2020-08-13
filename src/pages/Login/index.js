@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { TextField } from "formik-material-ui";
 import { LoginSchema } from "../../utils/validations/schema/login";
-import { login } from "../../services/ducks/Sapir/actions";
+import { login } from "../../services/ducks/User/actions";
 
 import { useStyles } from "../pageStyles";
 import { Link } from "react-router-dom";

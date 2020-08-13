@@ -4,8 +4,8 @@ import { Box, Typography, Grid, Divider, Button } from "@material-ui/core";
 import CheckCircleOutlineOutlinedIcon from "@material-ui/icons/CheckCircleOutlineOutlined";
 import axios from "axios";
 
-import { useDispatch, useSelector } from 'react-redux';
-import { request } from '../../services/ducks/Sapir/actions';
+import { useDispatch, useSelector } from "react-redux";
+import { request } from "../../services/ducks/User/actions";
 
 import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
@@ -20,7 +20,7 @@ function Register() {
   const classes = useStyles();
   const history = useHistory();
 
-  const auth = useSelector((state => state.reducerSapir));
+  const auth = useSelector((state) => state.reducerSapir);
 
   const methods = useFormik({
     enableReinitialize: true,
@@ -48,7 +48,7 @@ function Register() {
 
   async function getCep() {
     try {
-      const cleanCep = methods.values.cep.replace(/\D/g, "")
+      const cleanCep = methods.values.cep.replace(/\D/g, "");
       const response = await axios.get(
         `https://viacep.com.br/ws/${cleanCep}/json/`
       );
@@ -61,15 +61,11 @@ function Register() {
     }
   }
 
-  // React.useEffect(() => {
-  //   if(auth.error === true){
-  //     alert("Deu erro")
-  //   } else {
-  //     history.push("/")
-  //   }
-
-    
-  // }, [auth]);
+  // if (auth.error === true) {
+  //   alert("Deu erro");
+  // } else {
+  // }
+  // console.log(auth);
 
   return (
     <React.Fragment>
@@ -77,7 +73,10 @@ function Register() {
         <Box className={classes.content}>
           <Box display="flex" flexDirection="column">
             <Box mt={3}>
-              <Typography classes={{ body1: classes.titlePrincipal }} variant="body1">
+              <Typography
+                classes={{ body1: classes.titlePrincipal }}
+                variant="body1"
+              >
                 Quero me cadastrar na Sapir
               </Typography>
               <Divider className={classes.dividerL} orientation="horizontal" />
@@ -334,7 +333,7 @@ function Register() {
                     <Field
                       component={TextField}
                       label="Senha"
-                      type="password"
+                      // type="password"
                       name="password"
                       variant="filled"
                       border="none"
@@ -345,7 +344,7 @@ function Register() {
                     <Field
                       component={TextField}
                       label="Confirme a senha"
-                      type="password"
+                      // type="password"
                       name="password_confirm"
                       variant="filled"
                       required
