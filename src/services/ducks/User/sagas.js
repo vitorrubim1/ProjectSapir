@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects"; //generator
 
 import { api } from "../../../providers/api";
-import { success, failure, request, send_Contact } from "./actions";
+import { success, failure } from "./actions";
 
 export function* Register(action) {
   try {
@@ -36,18 +36,6 @@ export function* Login(action) {
     } else {
       yield put(failure(new Error("Tem parada errada ai mermão")));
     }
-  } catch (error) {
-    yield put(failure(error));
-  }
-}
-
-export function* Contact(action) {
-  try {
-    const response = yield call(
-      api.post,
-      "http://localhost:5000/auth/contact",
-      action.payload.data
-    );
   } catch (error) {
     yield put(failure(error));
   }

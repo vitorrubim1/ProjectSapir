@@ -5,7 +5,7 @@ import CheckCircleOutlineOutlinedIcon from "@material-ui/icons/CheckCircleOutlin
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-import { request } from "../../services/ducks/User/actions";
+import { register } from "../../services/ducks/User/actions";
 
 import { useFormik, FormikContext, Form, Field } from "formik";
 import { TextField } from "formik-material-ui";
@@ -42,7 +42,7 @@ function Register() {
     },
     validationSchema: RegisterSchema,
     onSubmit: (values) => {
-      dispatch(request(values));
+      dispatch(register(values));
     },
   });
 

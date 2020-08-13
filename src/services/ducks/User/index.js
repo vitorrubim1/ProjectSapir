@@ -2,10 +2,9 @@ export { reducer as SapirReducer } from "./reducer";
 export {
   failure,
   success,
-  request,
+  register,
   login,
-  send_Contact,
   forgot,
 } from "./actions";
-export { Register, Contact } from "./sagas";
+export { Register } from "./sagas";
 export { SapirTypes } from "./types";

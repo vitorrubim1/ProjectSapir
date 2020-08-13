@@ -8,7 +8,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SapirTypes.REQUEST:
+    case SapirTypes.REGISTER:
       return { ...state, loading: true };
 
     case SapirTypes.LOGIN:

@@ -3,9 +3,10 @@ import * as React from "react";
 import { Box, Typography, Grid, Divider, Button } from "@material-ui/core";
 
 import { useFormik, FormikContext, Form, Field } from "formik";
+import { api } from "../../providers/api";
 
 import { useDispatch, useSelector } from "react-redux";
-import { send_Contact } from "../../services/ducks/User/actions";
+import { send_Contact } from "../../services/ducks/Contact";
 
 import { TextField } from "formik-material-ui";
 import { SchemaContato } from "../../utils/validations/schema/contact";
@@ -31,6 +32,12 @@ function Contact() {
     onSubmit: (values) => {
       console.log(values);
       dispatch(send_Contact(values));
+
+      // try {
+      //   api.post("http://localhost:5000/auth/contact", values);
+      // } catch (error) {
+      //   console.log("Erro ao enviar email de Contato");
+      // }
     },
   });
 
